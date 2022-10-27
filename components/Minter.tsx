@@ -1,11 +1,8 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useState } from 'react'
 import { useMetaplex } from "../hooks/useMetaplex";
-import { toMetaplexFile } from "@metaplex-foundation/js";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Loading from './Loading';
-import { transferFunds } from '../utils/transactions';
 import { mintNFT } from '../utils/nfts';
 import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
@@ -19,7 +16,6 @@ type Inputs = {
 function Minter() {
 
     const wallet = useWallet();
-    const { connection } = useConnection()
     const metaplex = useMetaplex();
 
     const { register, watch, handleSubmit, formState: { errors }, reset } = useForm<Inputs>();
@@ -53,32 +49,6 @@ function Minter() {
             })
             setLoading(false);
         });
-
-        // try {
-        //     const nft = await mintNFT(
-        //         metaplex,
-        //         data.name,
-        //         data.description,
-        //         data.image[0]
-        //     );
-        //     setCreatedNftMetadata(nft?.nft.json)
-        //     reset(data);
-        //     setLoading(false);
-        //     Swal.fire({
-        //         icon: 'success',
-        //         title: 'Hey... Ya!',
-        //         text: 'Your NFT was minted successfully!',
-        //     });
-        //     console.log(nft);
-
-        // } catch (e) {
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Oops...',
-        //         text: 'Something went wrong. Please try again!',
-        //     })
-        //     setLoading(false);
-        // }
     };
 
     return (
