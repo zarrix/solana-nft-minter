@@ -1,11 +1,14 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import WalletContextProvider from '../contexts/WalletContextProvider';
+import Layout from '../layouts/layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WalletContextProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </WalletContextProvider>
 
   );
