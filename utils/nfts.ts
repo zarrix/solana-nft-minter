@@ -1,4 +1,4 @@
-import { Metaplex, toMetaplexFileFromBrowser } from "@metaplex-foundation/js";
+import { Metaplex, PublicKey, toMetaplexFileFromBrowser } from "@metaplex-foundation/js";
 
 export async function mintNFT(metaplex: Metaplex, name: string, description: string, image: any) {
     try {
@@ -23,5 +23,21 @@ export async function mintNFT(metaplex: Metaplex, name: string, description: str
     } catch (e) {
         throw e;
     }
+}
 
+
+export async function getAllNftsByOwner(metaplex: Metaplex, owner: PublicKey) {
+    const nfts: any = []
+    if (owner) {
+        const data = await metaplex.nfts()
+            .findAllByOwner({ owner })//.then(data => data.map(async d => (await fetch(d.uri)).json()))
+            //.then(data => nfts.push(data[0]))//data.map(d => fetch(d.uri).then(res => res.json()).then(data => nfts.push(data))))
+        
+        for (let d of data) {
+            const metadata = await (await fetch(d.uri)).json();
+            nfts.push(metadata);
+        }
+    }
+    
+    return nfts;
 }

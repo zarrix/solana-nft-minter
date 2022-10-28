@@ -64,7 +64,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className='flex flex-col md:flex-row justify-end'>
+    <div className='flex flex-col md:flex-row justify-end h-full'>
 
       <Head>
         <title>Solana NFT Minter</title>
@@ -137,7 +137,7 @@ const Home: NextPage = () => {
             <button type='submit' className='w-full bg-[#512da8] text-white rounded p-4 h-16  font-semibold'>
               {loading ? <Loading /> : 'Mint'}
             </button>
-            : <button disabled className='w-full bg-gray-500 text-white rounded p-4 font-semibold'>
+            : <button disabled className='w-full h-16 bg-gray-500 text-white rounded p-4 font-semibold'>
               Sign in to Mint
             </button>
           }
