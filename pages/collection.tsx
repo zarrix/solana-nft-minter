@@ -32,20 +32,9 @@ const collection = (props: Props) => {
                     setNfts(data)
                     setLoading(false);
                 });
-            // console.log(publicKey);
         } else {
-            // setNfts([]);
-            // Swal.fire({
-            //     icon: 'info',
-            //     title: 'Connect your wallet!',
-            //     text: 'Connect your wallet to see your nfts'
-            // })
         }
     }, [publicKey]);
-
-    // useEffect(() => {
-    //     console.log(nfts)
-    // }, [nfts]);
 
     return (
         <div>
@@ -66,10 +55,10 @@ const collection = (props: Props) => {
                     </div>
                 </form>
                 {/* MarketPlace */}
-                <div className=' grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-2'>
+                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 px-2'>
 
                     {loading ? 
-                        <div className='w-full flex items-center py-10'><Loading /></div>
+                        <div className='w-screen flex justify-center items-center py-10'><Loading /></div>
                     : nfts.map((nft, index) => 
                         <NftCard key={index} name={nft.name} description={nft.description} imageUrl={nft.image} />
                     )}
