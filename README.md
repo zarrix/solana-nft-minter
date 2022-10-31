@@ -7,7 +7,7 @@ __Website__: <a href="https://solana-nft-minter-zarrix.vercel.app/">https://sola
 <br/>
 <p align="center">
   <img src="docs/images/solana-nft-minter.png" alt="Solana NFT Minter "/>
-  <img src="docs/images/my-colection.png" alt="My Collection "/>
+  <img src="docs/images/my-collection.png" alt="My Collection "/>
 </p>
 
 ## Solution Arhcitecture
