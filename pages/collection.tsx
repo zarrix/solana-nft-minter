@@ -1,4 +1,5 @@
 import { useWallet } from '@solana/wallet-adapter-react';
+import { NextPage } from 'next';
 import Head from 'next/head';
 import { type } from 'os';
 import React, { useEffect, useState } from 'react'
@@ -16,7 +17,7 @@ type Nft = {
 
 type Props = {}
 
-const collection = (props: Props) => {
+const Collection: NextPage = () => {
 
     const metaplex = useMetaplex();
     const { publicKey } = useWallet();
@@ -72,4 +73,4 @@ const collection = (props: Props) => {
     )
 }
 
-export default collection;
+export default Collection;

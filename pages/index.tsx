@@ -89,7 +89,7 @@ const Home: NextPage = () => {
 
       {/* Minting Form  */}
       <motion.div
-        className='h-full w-[100%] md:w-[70%] bg-white p-30 flex flex-col items-center py-5 px-10'
+        className='h-screen relative w-[100%] md:w-[70%] bg-white p-30 flex flex-col items-center py-5 px-10'
         initial={{ x: 500 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5 }}
