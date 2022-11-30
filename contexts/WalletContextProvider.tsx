@@ -25,7 +25,7 @@ function WalletContextProvider({ children }: Props) {
 
     const network = WalletAdapterNetwork.Devnet;
 
-    const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+    const endpoint = useMemo(() => clusterApiUrl(network, true), [network]); // tls = true for https because vercel use https
     const wallets = useMemo(() => [
         new PhantomWalletAdapter(),
         new SolflareWalletAdapter(),

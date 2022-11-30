@@ -28,7 +28,7 @@ const Collection: NextPage = () => {
     useEffect(() => {
         if (publicKey) {
             setLoading(true);
-            getAllNftsByOwner(metaplex, publicKey)
+            getAllNftsByOwner(metaplex)
                 .then(data => {
                     setNfts(data)
                     setLoading(false);

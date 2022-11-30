@@ -26,8 +26,9 @@ export async function mintNFT(metaplex: Metaplex, name: string, description: str
 }
 
 
-export async function getAllNftsByOwner(metaplex: Metaplex, owner: PublicKey) {
+export async function getAllNftsByOwner(metaplex: Metaplex) {
     const nfts: any = []
+    const owner = metaplex.identity().publicKey;
     if (owner) {
         const data = await metaplex.nfts()
             .findAllByOwner({ owner })//.then(data => data.map(async d => (await fetch(d.uri)).json()))
